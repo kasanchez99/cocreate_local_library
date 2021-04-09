@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+{% load static %}
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="{% static '/emotionForm/mystyle.css' %}">
+<style>
+</style>
+<script src=""></script>
+<head>
+    <title>Final Survey</title>
+</head>
+<body>
+
+<div class="header">
+    <h1>Thank you for taking part in our co-creative systems!</h1>
+</div>
+
+<h2 class ="header">Please answer these questions</h2>
+<div>
+    <form action="" method="post">
+        <div class = "bullet"> 
+        {% csrf_token %}
+        <p>You feel happy / content 😄😁</p>
+        {{ form.happy }}
+        <p>You feel sad / gloomy 😞😔</p>
+        {{ form.sad }}
+        <p>You feel tired / drowsy 😩😴</p>
+        {{ form.tired }}
+        <p>You feel jittery / nervous 😅😬</p>
+        {{ form.jittery }}
+        <p>On a scale of 1 to 5, 1 being unpleasant and 5 being pleasant, how do you feel?</p>
+        {{ form.scale}}
+        <p>Any feedback? </p>
+        {{ form.feedback }}
+        </div>
+        <input type="submit" value="Submit">
+        {% if form.errors %}
+    <ol>
+    {% for error in form.errors %}
+        <li><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
+    </form>
+
+</div>
+</body>
+</html>

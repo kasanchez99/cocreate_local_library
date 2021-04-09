@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+{% load static %}
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="{% static '/emotionForm/mystyle.css' %}">
+<style>
+</style>
+<script src=""></script>
+<head>
+    <title>Initial Survey</title>
+    <!-- <script src="https://unpkg.com/jquery"></script> -->
+    <!-- <script type="text/javascript" src="slider.js"></script> -->
+
+    <!-- <script src="https://unpkg.com/survey-jquery@1.8.28/survey.jquery.min.js"></script>
+    <link href="https://unpkg.com/survey-knockout@1.8.28/modern.css" type="text/css" rel="stylesheet"/>
+    <script src="https://unpkg.com/wnumb@1.1.0"></script><link href="https://unpkg.com/nouislider@9.2.0/distribute/nouislider.min.css" rel="stylesheet"/>
+    <script src="https://unpkg.com/surveyjs-widgets@1.8.28/surveyjs-widgets.js"></script> -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+</head>
+<body>
+
+<div class="header">
+    <h1>Welcome to Co-Creative Systems!</h1>
+    <p>Begin your journey to co-creativity by taking this initial survey so we can better compliment your current state</p>
+    <p>Learn more about how co-creativity can improve mood <a href="">here</a></p> 
+    <p>Extra Resources</p>
+    <a href="http://www.ulifeline.org/scu/">ULifeline</a>
+    <a href="https://screener.ulifeline.org/?_ga=2.118145290.280716972.1614229601-2075168577.1614229601">ULifeline Screener</a>
+    <a href="https://www.scu.edu/cowell/resources/mental-wellness-resources/">SCU Provided Resources</a>
+    <a href="https://www.scu.edu/cowell/counseling-and-psychological-services-caps/">SCU CAPS</a>
+</div>
+
+<!--h2 class ="header">Please answer these questions for us to better compliment your needs?</h3> -->
+<div>
+    <form action="" method="post">
+        <div class = "bullet"> 
+        {% csrf_token %}
+        <p>You feel happy / content 😄😁 </p>
+        {{ form.happy }}
+        <br>
+        <br>
+        <p>You feel sad / gloomy 😞😔 </p>
+        {{ form.sad }}
+        <br>
+        <br>
+        <p>You feel tired / drowsy 😩😴 </p>
+        {{ form.tired }}
+        <br>
+        <br>
+        <p>You feel jittery / nervous 😅😬 </p>
+        {{ form.jittery }}
+        <br>
+        <br>
+        <p>On a scale of 1 to 5, 1 being unpleasant and 5 being pleasant, how do you feel?</p>
+        {{ form.scale}}
+        <br>
+        <br>
+        <p>What creative outlet do you prefer?</p>
+        {{ form.interest }}
+        <br>
+        </div>
+        <input type="submit" value="Submit">
+        {% if form.errors %}
+    <ol>
+    {% for error in form.errors %}
+        <li><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
+    </form>
+
+</div>
+
+<!-- <table class = "emotions">
+    <tr class = "emotions">
+        <th></th>
+        <th class = "emotions">Strongly Disagree</th>
+        <th class = "emotions">Disagree</th>
+        <th class = "emotions">Agree</th>
+        <th class = "emotions">Strongly Agree</th>
+    </tr>
+    <tr>
+        <td class = "emotions">You feel happy / content </td>
+        <td class = "emotions"><input type="radio" name="row-1" data-col="1"></td>
+        <td class = "emotions"><input type="radio" name="row-1" data-col="2"></td>
+        <td class = "emotions"><input type="radio" name="row-1" data-col="3"></td>
+        <td class = "emotions"><input type="radio" name="row-1" data-col="4"></td>
+    </tr>
+    <tr class = "emotions">
+        <td class = "emotions">You feel sad / gloomy </td>
+        <td class = "emotions"><input type="radio" name="row-2" data-col="1"></td>
+        <td class = "emotions"><input type="radio" name="row-2" data-col="2"></td>
+        <td class = "emotions"><input type="radio" name="row-2" data-col="3"></td>
+        <td class = "emotions"><input type="radio" name="row-2" data-col="4"></td>
+    </tr>
+    <tr class = "emotions">
+        <td class = "emotions">You feel tired / drowsy </td>
+        <td class = "emotions"><input type="radio" name="row-3" data-col="1"></td>
+        <td class = "emotions"><input type="radio" name="row-3" data-col="2"></td>
+        <td class = "emotions"><input type="radio" name="row-3" data-col="3"></td>
+        <td class = "emotions"><input type="radio" name="row-3" data-col="4"></td>
+    </tr>
+        <td class = "emotions">You feel jittery / nervous </td>
+        <td class = "emotions"><input type="radio" name="row-4" data-col="1"></td>
+        <td class = "emotions"><input type="radio" name="row-4" data-col="2"></td>
+        <td class = "emotions"><input type="radio" name="row-4" data-col="3"></td>
+        <td class = "emotions"><input type="radio" name="row-4" data-col="4"></td>
+</tr>
+    </table>
+
+
+<h3 class ="header">On a scale of 1 to 5, 1 being unpleasant and 5 being pleasant, how do you feel?</h3>
+<div class="slidecontainer">
+    <input type="range" min="1" max="5" value="1git " step="1" class="slider" id="myRange">
+    <div class="sliderticks">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+      </div>
+  </div>
+
+
+
+<h2>What creative outlet do you prefer?</h2>
+<table class = "outlet">
+<tbody>
+<tr class = "outlet">
+    <td><INPUT TYPE="checkbox" NAME="q1" VALUE="listen">Music (listening)</td>
+</tr>
+<tr class = "outlet">
+    <td><INPUT TYPE="checkbox" NAME="q2" VALUE="play">Music (playing)</td>
+</tr>
+<tr class = "outlet">
+    <td><INPUT TYPE="checkbox" NAME="q3" VALUE="draw">Drawing</td>
+    </tr>
+<tr class = "outlet">
+    <td><INPUT TYPE="checkbox" NAME="q4" VALUE="dance">Dance</td>
+    </tr>
+</tbody>
+</table> -->
+
+
+<!-- <a href="outlets.html"><button class = "back">Submit</button></a> -->
+</body>
+</html>
