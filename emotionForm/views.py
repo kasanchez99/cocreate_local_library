@@ -13,6 +13,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 
 
+
 # class CustomAuthToken(ObtainAuthToken):
 #     def post(self, request, *args, **kwargs):
 #         serializer = self.serializer_class(data=request.data,
@@ -27,7 +28,9 @@ from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 
 import random
+import uuid
 
+uniqueID = uuid.uuid4()
 def submitInitForm(request):
     # if this is a POST request we need to process the form data
     # form = initialForm()
@@ -72,7 +75,7 @@ def submitInitForm(request):
             #     self.object.chosen_system = "choice"
             #     self.object.save()
             #     return super(ModelFormMixin, self).form_valid(form)
-            form_instance = Initial.objects.create(happy = form.cleaned_data['happy'], sad = form.cleaned_data['sad'], tired = form.cleaned_data['tired'], jittery = form.cleaned_data['jittery'], scale = form.cleaned_data['scale'],chosen_system = choice)
+            form_instance = Initial.objects.create(happy = form.cleaned_data['happy'], sad = form.cleaned_data['sad'], tired = form.cleaned_data['tired'], jittery = form.cleaned_data['jittery'], scale = form.cleaned_data['scale'],chosen_system = choice, user = uniqueID)
             form_instance.save()
 
             # return cleaned_data
@@ -106,7 +109,8 @@ def submitFinalForm(request):
         
         # check whether it's valid:
         if form.is_valid():
-            form.save()
+            form_instance = Final.objects.create(happy = form.cleaned_data['happy'], sad = form.cleaned_data['sad'], tired = form.cleaned_data['tired'], jittery = form.cleaned_data['jittery'], scale = form.cleaned_data['scale'],feedback = form.cleaned_data['feedback'], user = uniqueID)
+            form_instance.save()
         
 
 

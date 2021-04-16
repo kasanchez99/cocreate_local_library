@@ -63,7 +63,6 @@ class initialForm(ModelForm):
     class Meta:
         model = Initial
         fields = ('happy', 'sad', 'tired','jittery', 'scale', 'interest')
-    print("here2")
 
 class finalForm(ModelForm):
     happy = forms.ChoiceField(choices = emotion_choices, widget = MyRadioWidget)

@@ -5,6 +5,9 @@ from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 
+import uuid
+from django.utils.translation import ugettext_lazy as _
+ 
 
 emotion_choices = [
     ('sDisagree', 'Strongly Disagree'),
@@ -27,7 +30,6 @@ system_choices = [
     ('listening', 'Music'),
     ('drawing', 'Art'),
 ]
-
 class Initial(models.Model):
     happy = models.CharField(
         max_length = 200,
@@ -54,13 +56,11 @@ class Initial(models.Model):
         max_length = 200,
         choices=system_choices
     )
-    user = models.ManyToManyField(User)
-    chosen_system = models.CharField(max_length = 200, default='')
-    # created = models.DateTimeField(auto_now = False, auto_now_add = False)
-    # token = models.Charfield()
 
-    # user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # token = models.CharField(max_length=200)
+    user = models.CharField(max_length = 200, default='')
+    chosen_system = models.CharField(max_length = 200, default='')
+
+
 
 class Final(models.Model):
     happy = models.CharField(
@@ -89,9 +89,7 @@ class Final(models.Model):
         default = ''
         # required=False,
     )
-    user = models.ManyToManyField(User)
-    # created = models.DateTimeField(auto_now = False, auto_now_add = False)
-    # token = models.CharField(max_length=200)
+    user = models.CharField(max_length = 200, default='')
 
 # class InitialForm(ModelForm):
 #     class Meta:         
