@@ -4,6 +4,7 @@
 {% load static %}
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="{% static '/emotionForm/mystyle.css' %}">
+
 <style>
 </style>
 <script src=""></script>
@@ -12,29 +13,185 @@
 </head>
 <body>
 
-<div class="header">
-    <h1>Thank you for taking part in our co-creative systems!</h1>
-</div>
+    <div class = "header">
+    <div class="header1">
+    <h1>Thank you for taking part in our platform!</h1>
+    <p>Please answer these questions so we can gage the effectiveness of co-creative systems.</p>
+    </div>
 
-<h2 class ="header">Please answer these questions</h2>
+    
+</div>
 <div>
     <form action="" method="post">
         <div class = "bullet"> 
         {% csrf_token %}
         <p>You feel happy / content 😄😁</p>
         {{ form.happy }}
+        {% block style %}
+        <style>
+
+        label[for=id_happy_0]{
+        padding-right: 55px;
+        }
+        label[for=id_happy_1]{
+        padding-right: 55px;
+        }
+        label[for=id_happy_2]{
+        padding-right: 55px;
+        }
+        label[for=id_happy_3]{
+        padding-right: 55px;
+        }
+        label[for=id_happy_4]{
+        padding-right: 55px;
+        }
+
+
+        label[for=id_sad_0]{
+        padding-right: 55px;
+        }
+        label[for=id_sad_1]{
+        padding-right: 55px;
+        }
+        label[for=id_sad_2]{
+        padding-right: 55px;
+        }
+        label[for=id_sad_3]{
+        padding-right: 55px;
+        }
+        label[for=id_sad_4]{
+        padding-right: 55px;
+        }
+
+        label[for=id_tired_0]{
+        padding-right: 55px;
+        }
+        label[for=id_tired_1]{
+        padding-right: 55px;
+        }
+        label[for=id_tired_2]{
+        padding-right: 55px;
+        }
+        label[for=id_tired_3]{
+        padding-right: 55px;
+        }
+        label[for=id_tired_4]{
+        padding-right: 55px;
+        }
+
+
+        label[for=id_jittery_0]{
+        padding-right: 55px;
+        }
+        label[for=id_jittery_1]{
+        padding-right: 55px;
+        }
+        label[for=id_jittery_2]{
+        padding-right: 55px;
+        }
+        label[for=id_jittery_3]{
+        padding-right: 55px;
+        }
+        label[for=id_jittery_4]{
+        padding-right: 55px;
+        }
+
+        label[for=id_scale_0]{
+        padding-right: 55px;
+        }
+        label[for=id_scale_1]{
+        padding-right: 55px;
+        }
+        label[for=id_scale_2]{
+        padding-right: 55px;
+        }
+        label[for=id_scale_3]{
+        padding-right: 55px;
+        }
+        label[for=id_scale_4]{
+        padding-right: 55px;
+        }
+
+
+        input[value="sDisagree"]:hover{
+            color: black;
+            transform: scale(1.5);
+        }
+        input[value="disagree"]:hover{
+            color: black;
+            transform: scale(1.5);
+        }
+        input[value="neutral"]:hover{
+            color: black;
+            transform: scale(1.5);
+        }
+        input[value="agree"]:hover{
+            color: black;
+            transform: scale(1.5);
+        }
+        input[value="sAgree"]:hover{
+            color: black;
+            transform: scale(1.5);
+        }
+        input[value="sAgree"]:hover{
+            color: black;
+            transform: scale(1.5);
+        }
+
+        input[value="1"]:hover{
+            color: black;
+            transform: scale(1.5);
+        }
+        input[value="2"]:hover{
+            color: black;
+            transform: scale(1.5);
+        }
+        input[value="3"]:hover{
+            color: black;
+            transform: scale(1.5);
+        }
+        input[value="4"]:hover{
+            color: black;
+            transform: scale(1.5);
+        }
+        input[value="5"]:hover{
+            color: black;
+            transform: scale(1.5);
+        }
+
+        input[id="id_feedback"]{
+            width: 400px;
+            height: 20px;
+        }
+        </style>
+        {% endblock %}
+        <br>
         <p>You feel sad / gloomy 😞😔</p>
         {{ form.sad }}
+        <br>
+        <br>
         <p>You feel tired / drowsy 😩😴</p>
         {{ form.tired }}
+        <br>
+        <br>
         <p>You feel jittery / nervous 😅😬</p>
         {{ form.jittery }}
+        <br>
+        <br>
         <p>On a scale of 1 to 5, 1 being unpleasant and 5 being pleasant, how do you feel?</p>
         {{ form.scale}}
+        <br>
+        <br>
         <p>Any feedback? </p>
         {{ form.feedback }}
+        <br>
+        <br>
         </div>
-        <input type="submit" value="Submit">
+        <br>
+        <br>
+        <div class = "submitbtn">
+            <input type="submit" value="Submit" class="button btn">
+        </div>
         {% if form.errors %}
     <ol>
     {% for error in form.errors %}

@@ -13,10 +13,18 @@
 
 
 .header {
-text-align: center;
 font-family: Georgia, serif;
-/*background: #7FFFD4; */
+/* background:black; */
 color: DarkBlue;
+padding: 20px;
+width: 60%;
+margin-left: auto;
+margin-right: auto;
+}
+
+.header1{
+text-align: center;
+
 }
 
 .headers {
@@ -25,8 +33,27 @@ color: DarkBlue;
   background: #7FFFD4;
   color: DarkBlue;
   padding: 50px;
-  text-align: center;
   font-size: 25px;
+}
+
+
+.resources{
+width: 600px;
+height: 50px;
+display: inline-block;
+}
+.rlabel{
+width: 150px;
+height: 50px;
+display: inline-block;
+vertical-align: top;
+}
+.actualresources{
+width: 400px;
+height: 50px;
+display: inline-block;
+margin-top: 15px;
+vertical-align: top;
 }
 
 
@@ -82,6 +109,7 @@ border: 0;
 }
 
 
+
 .bullet {
 text-align: center;
 font-family: Georgia, serif;
@@ -89,7 +117,7 @@ font-weight:bold;
 color: darkcyan;
 }
 
-input[type=text] {
+/* input[type=text] {
 padding:5px; 
 border:2px solid #ccc; 
 -webkit-border-radius: 5px;
@@ -98,22 +126,68 @@ border-radius: 5px;
 
 input[type=text]:focus {
 border-color:#333;
-}
+} */
 
-input[type=submit] {
-padding:5px 15px; 
-background:#ccc; 
+/* input[type=submit] { */
+/* padding:5px 15px;  */
+/* background:#ccc; 
 color: darkslateblue;
 border:0 none;
 cursor:pointer;
 -webkit-border-radius: 5px;
 font-family: Georgia, serif;
 border-radius: 7px; 
-text-align: center;
-font-size: 15px;
+text-align: center; */
+/* font-size: 15px; */
 
-}
+/* } */
+
+/* .submitbtn{
+text-align: center;
+} */
 
 .submitbtn{
+display: flex;
 text-align: center;
+justify-content: center;
+align-items: center;
+align-content: center;
+flex-wrap: wrap;
+margin: 0 auto;
+/* min-height: 100vh; */
+vertical-align: center;
+width: 90px;
+height: 40px;
 }
+
+
+.button{
+/* flex: 1 1 auto; */
+/* margin: 10px; */
+/* padding: 20px; */
+text-align: center;
+vertical-align: center;
+text-transform: uppercase;
+transition: 0.5s;
+color:white;
+/* background-size: 110px 40px; */
+
+border:0 none;
+text-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+box-shadow: 0 0 20px #eee;
+border-radius: 10px;
+background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100% );
+cursor: pointer;
+}
+
+.btn{
+width: 90px;
+height: 40px;
+}
+
+
+
+.btn:hover{
+background-position: right center; 
+}
+
