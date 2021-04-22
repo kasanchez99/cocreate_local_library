@@ -60,7 +60,7 @@ def submitInitForm(request):
             # fs = form.save(commit=False)
             choice = ''
             drawing_systems = ['http://weavesilk.com/', 'https://csh.bz/line/05xp.html', 'https://csh.bz/jsb/naquqo.html', 'https://csh.bz/jsb/garoqa.html']
-            music_systems = ['https://semiconductor.withgoogle.com/', 'https://experiments.withgoogle.com/ai/ai-duet/view/', 'https://lab.hakim.se/radar/', 'http://piano-genie.glitch.me/', 'https://www.patatap.com']
+            music_systems = ['https://semiconductor.withgoogle.com/', 'https://experiments.withgoogle.com/ai/ai-duet/view/', 'https://lab.hakim.se/radar/', 'https://www.patatap.com']
             interest = form.cleaned_data.get('interest')
             if interest == "drawing":
                 choice = random.choice(drawing_systems)
