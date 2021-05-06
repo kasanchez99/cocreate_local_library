@@ -9,11 +9,11 @@ class HorizontalRadioRenderer(forms.RadioSelect):
      return mark_safe(u'\n'.join([u'%s\n' % w for w in self]))
 
 emotion_choices = [
-    ('sDisagree', 'Strongly Disagree'),
-    ('disagree', 'Disagree'),
-    ('neutral', 'Neutral'),
-    ('agree', 'Agree'),
-    ('sAgree', 'Strongly Agree'),
+    ('sDisagree', ''),
+    ('disagree', ''),
+    ('neutral', ''),
+    ('agree', ''),
+    ('sAgree', ''),
 
 ]
 

@@ -11,7 +11,8 @@
     <title>Initial Survey</title>
 </head>
 <body>
-
+<div id = "wrapper">
+<div class = "entireform">
 <div class="header">
     <div class = "header1">
     <h1>Welcome to Co-Creative Systems!</h1>
@@ -45,127 +46,143 @@
 <!--h2 class ="header">Please answer these questions for us to better compliment your needs?</h3> -->
 <br>
 <br>
-<div>
+<div class = "mainform">
+
     <form action="" method="post">
-        <div class = "bullet"> 
-        {% csrf_token %}
-        <p>You feel happy / content 😄😁 </p>
-        {{ form.happy }}
+        <div class = "emotionquestions">
+            <div class = "questions"> 
+            <p class = "questiontext">You feel happy / content 😄😁 </p>
+            <!-- <hr> -->
+            <p class = "questiontext">You feel sad / gloomy 😞😔 </p>
+            <!-- <hr> -->
+            <p class = "questiontext">You feel tired / drowsy 😩😴 </p>
+            <!-- <hr> -->
+            <p class = "questiontext">You feel jittery / nervous 😅😬 </p>
+            <!-- <hr> -->
+            </div>
+            
+            <div class = "radiotext">
+                <!-- <p>Strongly Disgaree</p> -->
+                <div class = "radios">
+                    <div class = "radiolabels">
+                        <p class = "option">Strongly Disagree</p>
+                        <p class = "option">Disagree</p>
+                        <p class = "option">Neutral</p>
+                        <p class = "option">Agree</p>
+                        <p class = "option">Strongly Agree</p>
+                    </div>
+                    
+                    {% csrf_token %}
+                    <div class = radiobuttongroup>
+                    <div class = "radiobutton">
+                    {{ form.happy }}
+                    </div>
+                    <!-- <br>
+                    <br> -->
+                    <!-- <hr> -->
+                    <div class = "radiobutton">
+                        {{ form.sad }}
+                    </div>
+                    <!-- <hr> -->
+                    <div class = "radiobutton">
+                        {{ form.tired }}
+                    </div>
+                    <!-- <hr> -->
+                    <div class = "radiobutton">
+                        {{ form.jittery }}
+                    </div>
+                    </div>
+                    <!-- <hr> -->
+                </div>
+            </div>
+    </div>
+        <div class = "remaining">
+            <p class = "scaleQ">On a scale of 1 to 5, 1 being unpleasant and 5 being pleasant, how do you feel?</p>
+            <div class = "scale">
+                <!-- <button class="button-circle-bottom">1</button>               -->
+                {{ form.scale}}
+            </div>
+            <p class = "outletQ">What creative outlet do you prefer?</p>
+
+            <div class = "interestOp">
+                
+            {{ form.interest }}
+            </div>
+        </div>
         {% block style %}
         <style>
+        #help{
+            text-align: center;
+            width: 19%;
+        }
+        /* input[type=radio] {
+    border: 0px;
+    width: 100%;
+    height: 1.2em;
+} */
 
-        label[for=id_happy_0]{
-        padding-right: 55px;
-        }
-        label[for=id_happy_1]{
-        padding-right: 55px;
-        }
-        label[for=id_happy_2]{
-        padding-right: 55px;
-        }
-        label[for=id_happy_3]{
-        padding-right: 55px;
-        }
-        label[for=id_happy_4]{
-        padding-right: 55px;
-        }
-
-
-        label[for=id_sad_0]{
-        padding-right: 55px;
-        }
-        label[for=id_sad_1]{
-        padding-right: 55px;
-        }
-        label[for=id_sad_2]{
-        padding-right: 55px;
-        }
-        label[for=id_sad_3]{
-        padding-right: 55px;
-        }
-        label[for=id_sad_4]{
-        padding-right: 55px;
-        }
-
-        label[for=id_tired_0]{
-        padding-right: 55px;
-        }
-        label[for=id_tired_1]{
-        padding-right: 55px;
-        }
-        label[for=id_tired_2]{
-        padding-right: 55px;
-        }
-        label[for=id_tired_3]{
-        padding-right: 55px;
-        }
-        label[for=id_tired_4]{
-        padding-right: 55px;
-        }
-
-
-        label[for=id_jittery_0]{
-        padding-right: 55px;
-        }
-        label[for=id_jittery_1]{
-        padding-right: 55px;
-        }
-        label[for=id_jittery_2]{
-        padding-right: 55px;
-        }
-        label[for=id_jittery_3]{
-        padding-right: 55px;
-        }
-        label[for=id_jittery_4]{
-        padding-right: 55px;
+        .radiobuttongroup input[type=radio]{
+            border: 0px;
+            width: 100%;
+            height: 1.2em;
         }
 
         label[for=id_scale_0]{
-        padding-right: 55px;
+        padding-right: 100px;
+        /* transform: scale(1.5); */
+        /* border: 0px;
+        width:100%;
+        height: 5em; */
         }
         label[for=id_scale_1]{
-        padding-right: 55px;
+        padding-right: 100px;
         }
         label[for=id_scale_2]{
-        padding-right: 55px;
+        padding-right: 100px;
         }
         label[for=id_scale_3]{
-        padding-right: 55px;
+        padding-right: 100px;
         }
         label[for=id_scale_4]{
-        padding-right: 55px;
+        padding-right: 100px;
         }
 
         label[for=id_interest_0]{
-        padding-right: 55px;
+        padding-right: 100px;
         }
         label[for=id_interest_1]{
-        padding-right: 55px;
+        padding-right: 100px;
         }
 
         input[value="sDisagree"]:hover{
             color: black;
             transform: scale(1.5);
+            /* width: 19%; */
         }
         input[value="disagree"]:hover{
             color: black;
             transform: scale(1.5);
+            /* width: 19%; */
         }
         input[value="neutral"]:hover{
             color: black;
             transform: scale(1.5);
+            /* width: 19%; */
         }
         input[value="agree"]:hover{
             color: black;
             transform: scale(1.5);
+            /* width: 19%; */
         }
         input[value="sAgree"]:hover{
             color: black;
             transform: scale(1.5);
+            /* width: 19%; */
         }
         input[value="sAgree"]:hover{
             color: black;
             transform: scale(1.5);
+            /* width: 19%; */
         }
 
         input[value="1"]:hover{
@@ -202,28 +219,6 @@
         </style>
 {% endblock %}
         <br>
-        <br>
-        <p>You feel sad / gloomy 😞😔 </p>
-        {{ form.sad }}
-        <br>
-        <br>
-        <p>You feel tired / drowsy 😩😴 </p>
-        {{ form.tired }}
-        <br>
-        <br>
-        <p>You feel jittery / nervous 😅😬 </p>
-        {{ form.jittery }}
-        <br>
-        <br>
-        <p>On a scale of 1 to 5, 1 being unpleasant and 5 being pleasant, how do you feel?</p>
-        {{ form.scale}}
-        <br>
-        <br>
-        <p>What creative outlet do you prefer?</p>
-        {{ form.interest }}
-        <br>
-        </div>
-        <br>
         <div class = "submitbtn">
             <input type="submit" value="Submit" class="button btn">
         </div>
@@ -239,6 +234,8 @@
 {% endif %}
     </form>
 
+</div>
+</div>
 </div>
 
 </body>

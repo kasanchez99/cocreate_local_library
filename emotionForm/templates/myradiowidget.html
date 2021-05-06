@@ -3,6 +3,6 @@
     <div style='display:inline-block'>
         {{ group }}<div style='display:inline-block' {% if id %} id="{{ id }}_{{ index }}" {% endif %}>
             {% endif %}{% for option in options %}
-            <div style='display:inline-block'>{% include option.template_name with widget=option %}</div>{% endfor %}{% if group %}
+            <div style='display:inline-block' id = "help">{% include option.template_name with widget=option %}</div>{% endfor %}{% if group %}
     </div></div>{% endif %}{% endfor %}
     </div>{% endwith %}
