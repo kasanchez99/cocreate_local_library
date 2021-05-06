@@ -31,5 +31,5 @@ function countdown( elementName, minutes, seconds )
     updateTimer();
 }
 
-countdown( "ten-countdown", 7, 0 );
+countdown( "ten-countdown", 5, 0 );
 
